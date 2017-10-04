@@ -24,8 +24,9 @@ $(document).on("ready", function(){
 
 function onSuccess(json) {
   console.log("success got data");
+  $(".gif-img").remove();
   for (var i = 0; i < json.data.length; i++) {
-    $(".gif-gallery").append('<img src="'+json.data[i].images.fixed_height.url+'">');
+    $(".gif-gallery").append('<img class="gif-img" src="'+json.data[i].images.fixed_height.url+'">');
   }
 };
 
