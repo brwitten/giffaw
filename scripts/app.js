@@ -22,13 +22,6 @@ function onSuccess(json) {
   }
 }
 
-// function onSuccess(json) {
-//     for(i = 0; i < json.data.length; i++){
-//     $(".gif-gallery").append('<img src="'+json.data[i].images.fixed_height.url+'">');
-//     console.log(json);
-// }
-// }
-
 
 function onError(xhr, status, errorThrown) {
 	alert("Sorry, there was a problem!");
