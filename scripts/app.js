@@ -6,13 +6,26 @@ $(document).on("ready", function(){
     success: onSuccess,
     error: onError
   })
+  console.log($("form").serialize());
+
+  $("form").on("submit", function(e){
+    e.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: "http://api.giphy.com/v1/gifs/search",
+      data: $("form").serialize(),
+      success: onSuccess,
+      error: onError
+    })
+    console.log($("form").serialize());
+  });
+
 });
 
 function onSuccess(json) {
   console.log("success got data");
   for (var i = 0; i < json.data.length; i++) {
     $(".gif-gallery").append('<img src="'+json.data[i].images.fixed_height.url+'">');
-    console.log(json.data[i].images.fixed_height.url);
   }
 };
 
